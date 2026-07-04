@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Orbi</title>
+<style>
+  :root {
+    --ink: #1b1f24;
+    --muted: #5b6570;
+    --line: #e3e7ea;
+    --accent: #2f6feb;
+    --bg-soft: #f7f8fa;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    line-height: 1.65;
+  }
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 56px 24px 96px;
+  }
+  header {
+    margin-bottom: 40px;
+  }
+  header h1 {
+    font-size: 30px;
+    margin: 0 0 8px;
+    letter-spacing: -0.02em;
+  }
+  header p.meta {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+  }
+  h2 {
+    font-size: 19px;
+    margin: 40px 0 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--line);
+  }
+  h2:first-of-type { border-top: none; padding-top: 0; }
+  p { margin: 12px 0; font-size: 15.5px; color: #333; }
+  ul { margin: 12px 0; padding-left: 22px; }
+  li { margin: 6px 0; font-size: 15.5px; color: #333; }
+  code {
+    background: var(--bg-soft);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    color: #b0350f;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0 8px;
+    font-size: 14.5px;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    background: var(--bg-soft);
+    font-weight: 600;
+  }
+  .callout {
+    background: var(--bg-soft);
+    border-left: 3px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 4px;
+    margin: 20px 0;
+    font-size: 14.5px;
+    color: #333;
+  }
+  .callout strong { color: var(--ink); }
+  footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--muted);
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>Privacy Policy — Orbi</h1>
+    <p class="meta">Last updated: July 5, 2026</p>
+  </header>
+
+  <p>
+    Orbi is a browser extension that replaces your New Tab page with a customizable
+    dashboard (live wallpapers and shortcuts) and adds an on-page panel for quick
+    access to saved shortcuts and open tabs. This policy explains what data Orbi
+    accesses, how it's stored, and who it's shared with.
+  </p>
+
+  <div class="callout">
+    <strong>Short version:</strong> Orbi does not collect, sell, or transmit your
+    personal data to any server we operate. Everything Orbi stores — shortcuts,
+    wallpapers, settings — stays on your own device, in your browser's local
+    extension storage. The only outside network requests Orbi makes are to fetch
+    website icons (favicons), and those requests only include a domain name, never
+    a full URL, page content, or any personal identifier.
+  </div>
+
+  <h2>What data Orbi accesses</h2>
+  <p>To do its job, Orbi reads the following information from your browser:</p>
+  <table>
+    <tr>
+      <th>Data</th>
+      <th>Why Orbi accesses it</th>
+      <th>Where it goes</th>
+    </tr>
+    <tr>
+      <td>Titles, URLs, and favicons of your currently open tabs</td>
+      <td>To show the open-tabs preview panel and let you switch between tabs</td>
+      <td>Stays in the browser's memory; never leaves your device</td>
+    </tr>
+    <tr>
+      <td>A screenshot preview of your active tab's visible content</td>
+      <td>To show a live thumbnail of each tab in the preview panel, instead of a blank placeholder</td>
+      <td>Held temporarily in the extension's background process; not saved to disk and never transmitted anywhere</td>
+    </tr>
+    <tr>
+      <td>Shortcuts you add (name + URL), pin order, and layout choices</td>
+      <td>To display and organize your saved shortcuts</td>
+      <td>Saved locally via <code>chrome.storage.local</code> on your device</td>
+    </tr>
+    <tr>
+      <td>Wallpaper images, GIFs, or videos you upload</td>
+      <td>To display your chosen New Tab background</td>
+      <td>Saved locally via <code>chrome.storage.local</code> on your device</td>
+    </tr>
+    <tr>
+      <td>Clock/date display preferences (font, size, color, position)</td>
+      <td>To render the New Tab clock the way you've configured it</td>
+      <td>Saved locally on your device</td>
+    </tr>
+  </table>
+
+  <h2>The one thing that leaves your device: favicon lookups</h2>
+  <p>
+    When Orbi shows an icon for a shortcut, it first tries a standard favicon
+    request. If a website's security settings block that request, Orbi falls back
+    to asking for the icon from a small set of favicon lookup services:
+  </p>
+  <ul>
+    <li>Google's favicon service (<code>google.com/s2/favicons</code>)</li>
+    <li>DuckDuckGo's icon service (<code>icons.duckduckgo.com</code>)</li>
+    <li>The website's own <code>favicon.ico</code> file</li>
+  </ul>
+  <p>
+    These requests contain only the domain name of the shortcut (for example,
+    <code>example.com</code>) — never the full URL, your browsing history, page
+    content, or anything that identifies you personally. This is the same kind of
+    request your browser already makes any time it loads a site's icon in a tab.
+  </p>
+
+  <h2>What Orbi does not do</h2>
+  <ul>
+    <li>Orbi does not collect or transmit your personal information, browsing history, or page content to any server we operate.</li>
+    <li>Orbi does not sell or share your data with third parties for advertising, analytics, or any other purpose.</li>
+    <li>Orbi does not track your activity across websites, log your keystrokes, or monitor network traffic.</li>
+    <li>Orbi does not use your data to determine creditworthiness or for lending purposes.</li>
+    <li>Orbi does not read or store the content of pages you visit — only the tab metadata and visible-tab screenshot described above, both used solely to power the panel while it's open.</li>
+  </ul>
+
+  <h2>Data retention and deletion</h2>
+  <p>
+    All shortcuts, wallpapers, and settings are stored locally in your browser
+    profile for as long as the extension is installed. Uninstalling Orbi, or
+    clearing the extension's storage from your browser's settings, permanently
+    deletes this data. Tab titles, URLs, and screenshot previews are never
+    written to persistent storage — they exist only in memory while your
+    browser session is running and are cleared automatically when a tab closes
+    or the browser restarts.
+  </p>
+
+  <h2>Changes to this policy</h2>
+  <p>
+    If Orbi's data practices change in a future version, this page will be
+    updated and the "Last updated" date above will reflect the change.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    Questions about this policy or how Orbi handles data can be sent to:
+    <a href="mailto:REPLACE_WITH_YOUR_SUPPORT_EMAIL">REPLACE_WITH_YOUR_SUPPORT_EMAIL</a>
+  </p>
+
+  <footer>
+    Orbi — New Tab, Live Wallpapers &amp; Shortcuts
+  </footer>
+
+</div>
+</body>
+</html>
